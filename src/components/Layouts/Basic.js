@@ -28,7 +28,7 @@ const Basic = (props) => (
         <Menu.Item key="1">
           <span className="nav-text">TFS Deploy</span>
         </Menu.Item>
-        <Menu.Item key="2">
+        {/* <Menu.Item key="2">
           <UserOutlined />
           <span className="nav-text">nav 1</span>
         </Menu.Item>
@@ -39,7 +39,7 @@ const Basic = (props) => (
         <Menu.Item key="4">
           <UploadOutlined />
           <span className="nav-text">nav 3</span>
-        </Menu.Item>
+        </Menu.Item> */}
       </Menu>
     </Sider>
     <Layout className="site-layout" style={{ marginLeft: 200 }}>
