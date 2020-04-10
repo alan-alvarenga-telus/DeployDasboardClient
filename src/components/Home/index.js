@@ -27,7 +27,7 @@ export default function Home(props) {
       <Button type="default" onClick={getStatus}>Server App Status</Button>
       {(form.loading) 
       ? <Spin size='large' /> 
-      : <TextArea rows={6} value={form.data} />
+      : <TextArea rows={6} value={form.data} style={{fontSize: "10px", fontFamily:"MONOSPACE"}}/>
       }
     </>
   );
