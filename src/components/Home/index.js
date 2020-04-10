@@ -8,15 +8,20 @@ export default function Home(props) {
     error: null
   });
   const get = () => {
-    axios.get('http://localhost:8888/deploy/new')
+    axios.get('http://btln003067:8888/deploy/new')
     .then((res) => setPayload({ data: res.data.data, error: res.data.error}))
     .catch((err) => setPayload({ error: err.error, data: null }));
   }
   return (
     <>
     <Button type="primary" onClick={get}>Deploy New FOMC version</Button>
-    {(!payload.error && payload.data) ? <pre>{JSON.stringify(payload.data)}</pre> : null}
-    {(payload.error) ? <pre>{payload.error}</pre> : null}
+    {(payload.data) ? (<>
+      <pre>
+      response...
+      {JSON.stringify(payload.data)}
+      error ...
+      {JSON.stringify(payload.error)}
+    </pre></>) : null}
     </>
   )
 };
