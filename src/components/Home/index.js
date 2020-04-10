@@ -1,27 +1,34 @@
 import React, { useState } from 'react';
-import { Button } from 'antd'
+import { Button, Spin, Input } from 'antd'
 import axios from 'axios';
+const { TextArea } = Input;
 
 export default function Home(props) {
-  const [payload, setPayload] = useState({
+  const [form, setForm] = useState({
     data: null,
-    error: null
+    loading: false,
   });
-  const get = () => {
+  const newDeploy = () => {
+    setForm({...form, loading: true });
     axios.get('http://btln003067:8888/deploy/new')
-    .then((res) => setPayload({ data: res.data.data, error: res.data.error}))
-    .catch((err) => setPayload({ error: err.error, data: null }));
+      .then(({data}) => setForm({ data: data.data, loading: false }))
+      .catch((err) => setForm({ data: err, loading: false }));
   }
+  const getStatus = () => {
+    setForm({...form, loading: true });
+    axios.get('http://btln003067:8888/deploy/status')
+      .then(({data}) => setForm({ data: data.data, loading: false }))
+      .catch((err) => setForm({ data: err, loading: false }));
+  }
+
   return (
     <>
-    <Button type="primary" onClick={get}>Deploy New FOMC version</Button>
-    {(payload.data) ? (<>
-      <pre>
-      response...
-      {JSON.stringify(payload.data)}
-      error ...
-      {JSON.stringify(payload.error)}
-    </pre></>) : null}
+      <Button type="primary" onClick={newDeploy}>Deploy New FOMC version</Button>
+      <Button type="default" onClick={getStatus}>Server App Status</Button>
+      {(fom.loading) 
+      ? <Spin size='large' /> 
+      : <TextArea rows={6} value={form.data} />
+      }
     </>
-  )
+  );
 };

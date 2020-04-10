@@ -1,16 +1,16 @@
 
 import React from 'react';
 import { Layout, Menu } from 'antd';
-import {
-  AppstoreOutlined,
-  BarChartOutlined,
-  CloudOutlined,
-  ShopOutlined,
-  TeamOutlined,
-  UserOutlined,
-  UploadOutlined,
-  VideoCameraOutlined,
-} from '@ant-design/icons';
+// import {
+//   AppstoreOutlined,
+//   BarChartOutlined,
+//   CloudOutlined,
+//   ShopOutlined,
+//   TeamOutlined,
+//   UserOutlined,
+//   UploadOutlined,
+//   VideoCameraOutlined,
+// } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
 const Basic = (props) => (
