@@ -25,7 +25,7 @@ export default function Home(props) {
     <>
       <Button type="primary" onClick={newDeploy}>Deploy New FOMC version</Button>
       <Button type="default" onClick={getStatus}>Server App Status</Button>
-      {(fom.loading) 
+      {(form.loading) 
       ? <Spin size='large' /> 
       : <TextArea rows={6} value={form.data} />
       }
